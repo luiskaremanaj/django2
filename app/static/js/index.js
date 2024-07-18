@@ -20,6 +20,15 @@ function formFunction(event) {
 
 
 
+
+
+
+
+
+
+
+
+
 $(document).ready(function() {
     let navbarColor = $("nav")
     console.log(navbarColor.css("backgroundColor"))
@@ -28,7 +37,7 @@ $(document).ready(function() {
      let windowHeight = $(window).scrollTop()
      console.log(windowHeight)
  
-     if (windowHeight >= 105){
+     if (windowHeight >= 17){
          navbarColor.css("backgroundColor", "rgb(1, 51, 1)")
      }else {
          navbarColor.css("backgroundColor", "transparent")
@@ -48,10 +57,18 @@ $(document).ready(function(){
 
 });
 
+
+
+       
+    
+
+
 $(document).ready(function(){
     if($('body').hasClass('shopnavbar')){
         $('.navbar').css('color','rgb(1, 51, 1)');
     }   
 });
 
-
+function redirectToPage(){
+    window.location.href="detailProduct.html";
+}

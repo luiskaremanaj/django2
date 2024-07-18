@@ -30,18 +30,7 @@
             background-color: rgb(1, 51, 1) !important;
         }
 
-        {% comment %} .container {
-            margin-top: 50px;
-            margin-bottom: 50px;
-            padding-top: 100px;
-            padding-bottom: 100px;
-            display: flex;
-            justify-content: space-between;
-            flex-direction: column;
-            align-items: center;
-            font-size: larger;
-            width: 50%;
-        } {% endcomment %}
+        
     </style>
 
    
@@ -52,18 +41,20 @@
     {% block content %}
 
     {% endblock %}
-  
-    
-        <h1 class="detail-title">{{productDetail.product_title}}</h1>
-
-        <img src="{{productDetail.product_image.url}}" class="detail-img">
-        
+<div class="container dpcont">
+    <div class="d-tp">    
+        <h3 class="detail-title">{{productDetail.product_title}}</h3>
         <p class="detail-p">{{productDetail.product_description}}</p>
-        
-        <a type="button" class="btn detail-btn" href="{% url 'login' %}">Contact Us</a>
-        
-   
+                
+    </div> 
 
+    <div class="d-im">
+        <img src="{{productDetail.product_image.url}}" class="detail-img">
+
+    </div>
+    
+</div> 
+    <a type="button" class="btn detail-btn" href="{% url 'login' %}">Contact Us</a>
     {% include 'footer.html' %}
 
     

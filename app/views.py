@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.core.mail import send_mail
+from django.contrib import messages
 from .models import *
 # Create your views here.
 
@@ -15,18 +16,18 @@ def login(request):
         message_email = request.POST['message-email']
         message = request.POST['message']
         
-        #send email
-        send_mail(
-            'Message from' + message_name,
-            message,
-            message_email,
-            ['karemanaj.luis@yahoo.com'],
-        )
-        
-        
-        return render(request, 'login.html', {'message_name': message_name})
-    else:
-        return render(request, 'login.html', {})
+        if message_name != '' and message_phone != '' and message_email != '' and message != '':
+            FormContact(
+                formContact_name=message_name,
+                formContact_phone=message_phone,
+                formContact_email=message_email,
+                formContact_text=message,
+            ).save()
+            messages.success(request, 'Thank You For Contacting Us')
+        else:
+            messages.error(request, 'Please Fill All The Fields')
+    return render(request, 'login.html',)
+
         
 
 

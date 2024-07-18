@@ -27,6 +27,14 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+      body{
+        display: flex;
+        flex-direction : column;
+        min-height : 100vh;
+      }
+    </style>
 </head>
 
 <body background="{% static 'images/rolex-4432382.jpg' %}" class="loginbg">
@@ -36,13 +44,14 @@
 {% endblock %}
 
 
- 
 
- 
-<h2 class="kontakttitle">Contact Us For The Watch You Are Interested In</h2>
+
+
+
+ <h2 class="kontakttitle">Contact Us For The Watch You Are Interested In</h2>
 <div id="kontakti">
   <div class="container-col-3">
-      <form action="{% url 'login' %}"  method="post" onsubmit="formFunction(event)" class="loginform">
+      <form  method="POST" class="loginform">
         {% csrf_token %}
         <div class="blloku1">
         <div class="input-group"> 
@@ -66,14 +75,21 @@
         <input type="submit" id="subbtn">
       </form>
   </div>
+
+
       
 
 </div>
 
-<div class="smsms">
-        <p id="sms"></p>
-      </div>
-
+{% if messages %}
+{% for message in messages %}
+<div class="alert alert-{{message.tags}}{% if message.tag == 'error' %} bg-danger-subtle {% endif %} smsms"
+    role="alert">
+    {{message}}
+</div>
+{% endfor %}
+{% endif %}
+  
 
 
 

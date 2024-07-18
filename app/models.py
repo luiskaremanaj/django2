@@ -12,3 +12,14 @@ class Product(models.Model):
     
     def __str__(self):
         return f"{self.product_title}"
+    
+    
+class FormContact(models.Model):
+    formContact_name = models.CharField(max_length=250, null = True, blank = True)
+    formContact_phone = models.IntegerField(null = True, blank = True)
+    formContact_email = models.EmailField(null = True, blank = True)
+    formContact_text = models.TextField(null = True, blank = True)
+    
+    def __str__(self):
+        return f"{self.formContact_name}"
+    
