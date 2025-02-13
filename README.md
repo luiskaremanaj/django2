@@ -1,1 +1,1 @@
-# django2
+# website using python/django
